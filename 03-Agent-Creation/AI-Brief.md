@@ -10,7 +10,7 @@ Two patterns exist:
 
 Skills are reusable procedures (`SKILL.md`: `name` + `description` frontmatter, then step-by-step body) invoked with `/skill-name`, either global or scoped to one agent.
 
-A session's own conversation is not durable — it's gone once the session ends unless deliberately resumed. Explain this to the user: `memory.md` holds only distilled, durable facts; a saved conversation (full transcript + summary) is for resuming or finishing one specific interrupted task; `Logs/Status.md` is for quick situational awareness without rereading a transcript. All three matter, not just `memory.md`. See `Blueprints/00-Skills-Catalog/` for the skills that implement them.
+A session's own conversation is not durable — it's gone once the session ends unless deliberately resumed. Explain this to the user: `memory.md` holds only distilled, durable facts; a saved conversation (full transcript + summary) is for resuming or finishing one specific interrupted task; `Logs/Status.md` is for quick situational awareness without rereading a transcript. All three matter, not just `memory.md`. See [00-Skills-Catalog](../00-Skills-Catalog/AI-Brief.md) for the skills that implement them.
 
 This is distinct from — and should be described to the user as distinct from — any built-in "subagent" dispatch feature the CLI tool itself has for ephemeral single-task helpers. Named agents built this way are durable personas; internal subagents are usually short-lived task helpers. Don't conflate the two when writing the new agent's `CLAUDE.md`.
 
