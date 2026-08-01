@@ -38,6 +38,8 @@ Also included:
 
 These guides involve credentials, tunnels, and remote access. Never commit secrets (API keys, tokens, passwords) to a repository — including one you fork from this. The blueprints' own credential rules exist for a reason: route secrets through a password manager (Blueprint 2's Vaultwarden pattern) rather than plaintext config files, and read Blueprint 5's Gotcha on the one deliberate exception (a watchdog on separate hardware, where a password-manager dependency would defeat its purpose) before assuming that rule is absolute.
 
+See [CHANGELOG.md](CHANGELOG.md) for what's changed since initial publish.
+
 ## Freshness
 
 The blueprints below were verified against a live deployment and current official documentation as of **2026-07-29**. Anything added after that date carries its own verification date. Version numbers and pricing mentioned throughout (Cloudflare Registrar pricing in Blueprint 1, Vaultwarden's websocket behavior since v1.29.0 in Blueprint 2, OpenAudible pricing in Blueprint 6, spotDL 4.5.x in Blueprint 7) were accurate as of that date — check the linked official sources if you're reading this well after.
