@@ -45,6 +45,7 @@ The director collects all results and, only if something couldn't recover on its
 
 - Only have one or two agents? Skip the "director fans out" complexity — a single script checking itself and logging is still worth having, you just lose the multi-agent rollup.
 - No auto-apply appetite for updates? Make the update-check job report-only — still worth running, just without the "apply automatically" step.
+- This same scheduled-check-and-notify shape doesn't have to point at your own services — [Blueprint #3](../03-Agent-Creation/Guide.md)'s "Repo Update Checker" bonus reuses it to watch an external GitHub repo (specifically, the blueprints repo these guides come from) instead.
 
 ## 6. Gotchas
 

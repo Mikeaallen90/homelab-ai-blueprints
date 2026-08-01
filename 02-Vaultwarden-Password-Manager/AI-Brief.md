@@ -26,8 +26,14 @@ Vaultwarden is an open-source, self-hosted reimplementation of the Bitwarden ser
 
 - `SIGNUPS_ALLOWED` must be turned off after the first account exists, or the instance is open to anyone who finds the URL.
 - The admin token gates `/admin` only — losing it doesn't lose vault data, just panel access; reset by recreating the container with a new `ADMIN_TOKEN`.
-- Full unattended automation requires storing the master password somewhere for periodic re-unlock — this is an unavoidable single root secret, so ask the user how they want to protect that one value (this is a real security decision, don't default it silently).
+- Full unattended automation requires storing the master password somewhere for periodic re-unlock — this is an unavoidable single root secret, so ask the user how they want to protect that one value (this is a real security decision, don't default it silently). That secret is also the one exception that can never move into the vault itself — it needs its own backup decision, and an OS secret store (GNOME Keyring/Credential Manager/Keychain) beats a bare markdown or text file if one's available on the host.
 - Data lives in the mounted volume only — confirm the user has a backup plan for it before calling this done.
+
+### If migrating an existing plaintext credential store into the vault
+
+- Audit gaps in both directions: confirm everything in the old store made it into the vault, AND check for anything a keyword scan of the old store would miss — bare mentions with no "password:"/"token:" label nearby need a full manual read-through of scratch/catch-all notes, not just a pattern scan.
+- Test staleness live wherever it's plausible a value changed since it was written down (e.g. a token that might have rotated) — don't assume the newest-looking copy is automatically the correct one; use `sha256sum`-style hash comparison to confirm exact matches without ever displaying either value.
+- Once a credential is fully confirmed migrated everywhere, deleting the old plaintext copy is reasonable.
 
 ## Done when
 
@@ -35,3 +41,4 @@ Vaultwarden is an open-source, self-hosted reimplementation of the Bitwarden ser
 - First account created, `SIGNUPS_ALLOWED=false` set.
 - At least one client (browser, mobile, or `bw`) successfully logged in and can read/write an item.
 - If CLI/agent access was requested: `bw get password` successfully returns a real stored credential from a script or shell, not just interactively.
+- If this involved migrating existing credentials: a full read-through (not just a keyword scan) of any catch-all/scratch notes has happened, and the vault's own master secret has a documented backup location outside the vault that isn't a bare plaintext file if a better option exists on the host.

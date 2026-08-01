@@ -26,6 +26,7 @@ Build a director agent that periodically directs each service-specific agent to 
 - Most self-hosted services don't update themselves — the update-check job exists specifically to remove that manual, per-service chore.
 - Roll multiple agent results into a single alert per run — never send one alert per agent for the same scheduled pass.
 - This job assumes the primary machine is up and running. It is not a substitute for the independent watchdog backstop below, which exists for the case where the whole machine is down and nothing here can even run.
+- This same scheduled-check-and-notify shape isn't limited to watching your own services — see [Blueprint #3](../03-Agent-Creation/AI-Brief.md)'s "Repo Update Checker" bonus, which reuses it to watch an external GitHub repo instead.
 
 ---
 
