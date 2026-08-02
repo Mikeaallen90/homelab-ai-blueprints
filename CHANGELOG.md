@@ -5,7 +5,7 @@ Notable changes to these blueprints, newest first.
 ## 2026-08-02 — `2eb840c`
 
 ### Changed
-- **Blueprint 3 (Agent Creation)**: added guidance on picking a uniform agent-naming convention up front when multiple agents share one external trigger/caller (a phone automation tool, webhook, etc.), a gotcha on safe vs. unsafe agent-handle renames, and a gotcha that a "Creator" agent (one that builds other agents) should never edit blueprint content directly — it writes a handoff report instead, same as any other agent.
+- **Blueprint 3 (Agent Creation)**: added guidance on picking a uniform agent-naming convention up front when multiple agents share one external trigger/caller (a phone automation tool, webhook, etc.), and a gotcha on safe vs. unsafe agent-handle renames.
 
 ## 2026-08-01 — `0ce5bc4`
 
